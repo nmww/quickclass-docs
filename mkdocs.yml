@@ -1,0 +1,75 @@
+# QuickClass 在线文档 · MkDocs 配置
+# 托管：ReadTheDocs（见 .readthedocs.yaml）
+# 本地预览：pip install -r requirements.txt && mkdocs serve
+site_name: QuickClass 使用文档
+site_description: QuickClass（觉课智能体）—— AI 智能体学习平台 · 教师与学生使用手册
+site_author: QuickClass
+# 上线后如 RTD 分配的项目名不同，改这里即可
+site_url: https://quickclass.readthedocs.io/
+copyright: QuickClass · 盛通教育
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: 切换到深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到浅色模式
+
+nav:
+  - 首页: index.md
+  - 快速上手: guide/getting-started.md
+  - 教师端功能:
+      - 课堂、班级与学习活动: guide/teacher.md
+      - 导入导出与知识库: guide/import-export.md
+      - 学情分析与教学研究: guide/analysis.md
+      - 系统配置与手册导出: guide/settings.md
+  - 学生端: guide/student.md
+  - WorkBuddy 技能支持: workbuddy.md
+  - 部署指南: guide/deploy.md
+  - 常见问题: faq.md
+  - 更新记录: changelog.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
