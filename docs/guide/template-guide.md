@@ -1,0 +1,422 @@
+# 学情分析模板定制指南（教师版）
+
+> 适用场景：你想让 AI 学情分析报告更贴合自己学科、自己班级的评价体系。阅读时间：10 分钟。前三章照着例子改，10 分钟就能做出自己的第一份模板；第四章是完整的"改前 → 改后 → 报告效果"对比，想看清楚改动会带来什么，再细读。
+
+## 一、先放心：你能改坏什么？
+
+模板分两层，**你只碰得到安全的那层**：
+
+| 层 | 谁管 | 内容 |
+|---|---|---|
+| 系统层 | 平台 | 图表怎么画、颜色、坐标、格式规范 |
+| 内容层 | **你** | 分析哪些维度、怎么打等级、报告写什么 |
+
+图表画歪、格式错乱这类问题，**从设计上就与你无关**——系统负责画图，你负责定标准。你改模板只会影响"分析什么、怎么评"，改坏了最多是内容不合心意，恢复一下就行。
+
+## 二、你能改的三样东西
+
+打开「模板管理」页面，复制一份默认模板开始改。所有可改项就三类：
+
+### 1. 维度清单（雷达图分析哪几项）
+
+默认模板用五个维度：课堂参与、知识掌握、思维深度、作业表现、学习态度。你觉得不合适？直接改名字、增删条目。**写几项，雷达图就画几边形**，3 项到 8 项都行。
+
+### 2. 等级标准（每项怎么算好、算差）
+
+默认是 0-100 分。你可以换成等级制（优/良/合格/待改进），并写清每个等级的判定标准。
+
+### 3. 报告板块（报告里写什么、顺序如何）
+
+增删"报告要求"里的编号条目，比如加一段「家校沟通建议」、去掉「学生排名」。**图表也算板块**：「报告要求」里每一条"插入 chart 块" = 报告里的一张图，几条就画几张（详见例子 4）。
+
+## 三、四个照抄就能用的例子
+
+### 例子 1：换维度（最常见，2 分钟）
+
+信息科技老师觉得默认五维不贴合，改成学科核心素养四维。找到模板里的维度清单，替换成：
+
+```
+3. 雷达图维度固定为：信息意识、计算思维、数字化学习与创新、信息社会责任（共 4 维，按此顺序）
+```
+
+保存 → 用一份作业试跑 → 雷达图自动变成四边形。
+
+### 例子 2：百分制换等级制（5 分钟）
+
+找到（或新增）"维度与等级体系"段。「维度 → 等级 → 分值」的映射**用表格或纯文本都行**——模板最终是整段文本喂给 AI，AI 两种都读得懂、效果一样，选你顺手的写法即可。
+
+**写法 A：表格（直观，推荐维度多、等级细时用）**
+
+```
+## 维度与等级体系
+
+雷达图维度及评分标准（按此表判定等级，填入对应分值）：
+
+| 维度 | 优(90) | 良(75) | 合格(60) | 待改进(40) |
+|---|---|---|---|---|
+| 课堂参与 | 主动发言≥3次 | 有发言 | 仅应答 | 未参与 |
+| 知识掌握 | 全对 | 错1题 | 错2题 | 错3题及以上 |
+
+- 每个维度先按上表判定等级，再取括号里的分值填入图表。
+- 图表旁的表格同时展示"等级 + 分值"，方便核对判定依据。
+```
+
+**写法 B：纯文本（省事，适合维度少、手机编辑时）**
+
+```
+## 维度与等级体系
+
+雷达图维度及评分标准（先按下列标准判定等级，再取括号里的分值填入图表）：
+
+- 课堂参与：优(90)=主动发言≥3次；良(75)=有发言；合格(60)=仅应答；待改进(40)=未参与
+- 知识掌握：优(90)=全对；良(75)=错1题；合格(60)=错2题；待改进(40)=错3题及以上
+```
+
+两种写法对 AI 完全等价，唯一区别是你自己读起来哪个更清楚。
+
+关键点：**括号里的分值不要改**（系统按 0-100 画图），要改的是每个等级的判定标准——那才是你的评价主张。
+
+### 例子 3：加一个报告板块（3 分钟）
+
+在"报告要求"清单末尾加一行：
+
+```
+11. 增加「家校沟通建议」板块：针对需关注学生，各写一条可直接发给家长的建议（50字内，具体可执行，不出现分数排名）
+```
+
+写清楚三件事：板块名、写什么、什么口吻。写得越具体，AI 越稳。
+
+### 例子 4：增删图表（一份报告有好几张图，怎么改）
+
+默认的「课堂作业分析模板（数据型）」报告里，本来就画了 **3 张图**：各题正确率柱状图、分数分布柱状图、班级掌握度进度条。这几张图不是系统写死的，而是「报告要求」里三条编号条目——**一条 = 一张图**。打开模板看这三条：
+
+```
+3. 插入 chart 块（type=bar，style 含 unit:"%" 和 warnBelow:60）展示各题正确率（<60% 标警示色）
+4. 插入 chart 块（type=bar）展示分数分布
+5. 插入 chart 块（type=progress）展示班级整体掌握度
+```
+
+想加图、删图、换图，就改这几条编号：
+
+| 你想做的事 | 怎么改 |
+|---|---|
+| 加一张图 | 末尾补一条，写清 `type` + 展示内容 + 数据来源变量 |
+| 删一张图 | 删掉对应那条编号，后面的编号往前顺 |
+| 换一张图 | 改那条的 `type` 或展示内容 |
+
+**加图示例**——想加一张「分数段构成饼图」，在末尾补：
+
+```
+6. 插入 chart 块（type=pie）展示分数段人数构成（数据来源 {scoreDistribution}）
+```
+
+**最容易踩的坑：每张图都要写清「数据来源变量」，否则几张图会串成同一份数据。** 上面三条里，第 3、5 条的数据来自 `{questionStats}`（各题正确率），第 4 条来自 `{scoreDistribution}`（分数段人数）——数据源不同，三张图才长得不一样。新加一张图却不写来源，AI 很可能把已有的数据再画一遍。
+
+> 另一个常见误会：模板「图表协议」段里的示例 chart 块只有 **1 个**，它是给 AI 看的「数据块长什么样」的格式样板，**不代表图的数量**——真正决定画几张图的是「报告要求」里的条目数，增删图时不要动示例块的**数量**（恒为 1 个）。
+
+> 但要注意：**示例块的「数量」不变 ≠ 内容永远不用改**。改雷达图的**维度**时（例子 1、案例 A），示例块里的维度名要跟着一起改，否则 AI 会按旧示例的维度输出。简单记：加图 / 删图 / 换 `type` → 只动「报告要求」；改雷达**维度** → 「报告要求」和示例块**两处同步**。
+
+## 四、深度对比示例：改之前 → 改之后 → 报告效果
+
+> 前面的例子告诉你"改哪一行"，这一章把完整过程摊开：**原模板长什么样、改完长什么样、改完后 AI 生成的报告会发生什么变化**。报告均为模拟数据，实际数值以你的班级数据为准。
+
+> 以「学生个人学情分析模板（课堂·数据型）」为底本。打开「模板管理」→ 找到该模板 → 复制一份，跟着下面任一案例改即可。
+
+### 案例 A：信息科技老师换维度（五维 → 四维核心素养）
+
+**① 改之前——模板里是这样的**
+
+模板「报告要求」第 3 条：
+
+```
+3. 插入 chart 块（type=radar）展示综合能力（维度：知识掌握、参与度、思维深度、作业表现、学习态度）
+```
+
+模板「图表协议」里的示例 chart 块：
+
+<div class="qc-chart-card" style="background:#FFFFFF;border:1px solid #E5E7EB;border-radius:10px;padding:14px 16px 6px;margin:18px 0"><div class="qc-chart" style="margin:16px 0;break-inside:avoid;page-break-inside:avoid"><div style="font-size:15px;font-weight:700;color:#1F2937;margin-bottom:10px;text-align:center">综合能力</div><svg viewBox="0 0 460 420" width="100%" style="max-width:460px;display:block;margin:0 auto" xmlns="http://www.w3.org/2000/svg"><polygon points="230.0,65.0 372.7,168.6 318.2,336.4 141.8,336.4 87.3,168.6" fill="none" stroke="#94A3B8" stroke-width="2"/><polygon points="230.0,102.5 337.0,180.2 296.1,306.0 163.9,306.0 123.0,180.2" fill="none" stroke="#94A3B8" stroke-width="1.5"/><polygon points="230.0,140.0 301.3,191.8 274.1,275.7 185.9,275.7 158.7,191.8" fill="none" stroke="#94A3B8" stroke-width="1.5"/><polygon points="230.0,177.5 265.7,203.4 252.0,245.3 208.0,245.3 194.3,203.4" fill="none" stroke="#94A3B8" stroke-width="1.5"/><line x1="230.0" y1="215.0" x2="230.0" y2="65.0" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><line x1="230.0" y1="215.0" x2="372.7" y2="168.6" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><line x1="230.0" y1="215.0" x2="318.2" y2="336.4" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><line x1="230.0" y1="215.0" x2="141.8" y2="336.4" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><line x1="230.0" y1="215.0" x2="87.3" y2="168.6" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><polygon points="230.0,92.0 338.4,179.8 290.0,297.5 152.4,321.8 100.2,172.8" fill="#0052D9" fill-opacity="0.3" stroke="#0052D9" stroke-width="2.5"/><circle cx="230.0" cy="92.0" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><circle cx="338.4" cy="179.8" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><circle cx="290.0" cy="297.5" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><circle cx="152.4" cy="321.8" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><circle cx="100.2" cy="172.8" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><text x="230.0" y="80.0" font-size="11" fill="#4B5563" text-anchor="middle">82</text><text x="353.6" y="178.8" font-size="11" fill="#4B5563" text-anchor="start">76</text><text x="299.4" y="314.5" font-size="11" fill="#4B5563" text-anchor="start">68</text><text x="143.0" y="338.7" font-size="11" fill="#4B5563" text-anchor="end">88</text><text x="85.0" y="171.9" font-size="11" fill="#4B5563" text-anchor="end">91</text><text x="230.0" y="41.0" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="middle">知识掌握</text><text x="393.6" y="166.8" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="start">参与度</text><text x="331.1" y="368.2" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="start">思维深度</text><text x="128.9" y="368.2" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="end">作业表现</text><text x="66.4" y="166.8" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="end">学习态度</text><text x="236.0" y="180.5" font-size="10" fill="#6B7280">25</text><text x="236.0" y="143.0" font-size="10" fill="#6B7280">50</text><text x="236.0" y="105.5" font-size="10" fill="#6B7280">75</text><text x="236.0" y="68.0" font-size="10" fill="#6B7280">100</text></svg></div></div>
+
+**② 改之后——只动这两处**
+
+「报告要求」第 3 条改为：
+
+```
+3. 插入 chart 块（type=radar）展示信息科技核心素养（维度：信息意识、计算思维、数字化学习与创新、信息社会责任，共 4 维，按此顺序）
+```
+
+「图表协议」里的示例 chart 块同步改为：
+
+<div class="qc-chart-card" style="background:#FFFFFF;border:1px solid #E5E7EB;border-radius:10px;padding:14px 16px 6px;margin:18px 0"><div class="qc-chart" style="margin:16px 0;break-inside:avoid;page-break-inside:avoid"><div style="font-size:15px;font-weight:700;color:#1F2937;margin-bottom:10px;text-align:center">信息科技核心素养</div><svg viewBox="0 0 460 420" width="100%" style="max-width:460px;display:block;margin:0 auto" xmlns="http://www.w3.org/2000/svg"><polygon points="230.0,65.0 380.0,215.0 230.0,365.0 80.0,215.0" fill="none" stroke="#94A3B8" stroke-width="2"/><polygon points="230.0,102.5 342.5,215.0 230.0,327.5 117.5,215.0" fill="none" stroke="#94A3B8" stroke-width="1.5"/><polygon points="230.0,140.0 305.0,215.0 230.0,290.0 155.0,215.0" fill="none" stroke="#94A3B8" stroke-width="1.5"/><polygon points="230.0,177.5 267.5,215.0 230.0,252.5 192.5,215.0" fill="none" stroke="#94A3B8" stroke-width="1.5"/><line x1="230.0" y1="215.0" x2="230.0" y2="65.0" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><line x1="230.0" y1="215.0" x2="380.0" y2="215.0" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><line x1="230.0" y1="215.0" x2="230.0" y2="365.0" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><line x1="230.0" y1="215.0" x2="80.0" y2="215.0" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><polygon points="230.0,87.5 338.0,215.0 230.0,332.0 95.0,215.0" fill="#0052D9" fill-opacity="0.3" stroke="#0052D9" stroke-width="2.5"/><circle cx="230.0" cy="87.5" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><circle cx="338.0" cy="215.0" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><circle cx="230.0" cy="332.0" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><circle cx="95.0" cy="215.0" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><text x="230.0" y="75.5" font-size="11" fill="#4B5563" text-anchor="middle">85</text><text x="354.0" y="219.0" font-size="11" fill="#4B5563" text-anchor="start">72</text><text x="230.0" y="352.0" font-size="11" fill="#4B5563" text-anchor="middle">78</text><text x="79.0" y="219.0" font-size="11" fill="#4B5563" text-anchor="end">90</text><text x="230.0" y="41.0" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="middle">信息意识</text><text x="402.0" y="220.0" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="start">计算思维</text><text x="230.0" y="401.0" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="middle">数字化学习与创新</text><text x="58.0" y="220.0" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="end">信息社会责任</text><text x="236.0" y="180.5" font-size="10" fill="#6B7280">25</text><text x="236.0" y="143.0" font-size="10" fill="#6B7280">50</text><text x="236.0" y="105.5" font-size="10" fill="#6B7280">75</text><text x="236.0" y="68.0" font-size="10" fill="#6B7280">100</text></svg></div></div>
+
+> ⚠️ **两处都要改**，这是最容易漏的点：报告要求告诉 AI"画什么维度"，示例块告诉 AI"长什么样"。只改前者，AI 可能仍按旧示例的五维输出。
+
+**③ 新报告的效果（模拟数据）**
+
+AI 按新维度输出 chart 块，系统自动渲染成**四边形**雷达图：
+
+<div class="qc-chart-card" style="background:#FFFFFF;border:1px solid #E5E7EB;border-radius:10px;padding:14px 16px 6px;margin:18px 0"><div class="qc-chart" style="margin:16px 0;break-inside:avoid;page-break-inside:avoid"><div style="font-size:15px;font-weight:700;color:#1F2937;margin-bottom:10px;text-align:center">信息科技核心素养</div><svg viewBox="0 0 460 420" width="100%" style="max-width:460px;display:block;margin:0 auto" xmlns="http://www.w3.org/2000/svg"><polygon points="230.0,65.0 380.0,215.0 230.0,365.0 80.0,215.0" fill="none" stroke="#94A3B8" stroke-width="2"/><polygon points="230.0,102.5 342.5,215.0 230.0,327.5 117.5,215.0" fill="none" stroke="#94A3B8" stroke-width="1.5"/><polygon points="230.0,140.0 305.0,215.0 230.0,290.0 155.0,215.0" fill="none" stroke="#94A3B8" stroke-width="1.5"/><polygon points="230.0,177.5 267.5,215.0 230.0,252.5 192.5,215.0" fill="none" stroke="#94A3B8" stroke-width="1.5"/><line x1="230.0" y1="215.0" x2="230.0" y2="65.0" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><line x1="230.0" y1="215.0" x2="380.0" y2="215.0" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><line x1="230.0" y1="215.0" x2="230.0" y2="365.0" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><line x1="230.0" y1="215.0" x2="80.0" y2="215.0" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><polygon points="230.0,87.5 338.0,215.0 230.0,332.0 95.0,215.0" fill="#0052D9" fill-opacity="0.3" stroke="#0052D9" stroke-width="2.5"/><circle cx="230.0" cy="87.5" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><circle cx="338.0" cy="215.0" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><circle cx="230.0" cy="332.0" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><circle cx="95.0" cy="215.0" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><text x="230.0" y="75.5" font-size="11" fill="#4B5563" text-anchor="middle">85</text><text x="354.0" y="219.0" font-size="11" fill="#4B5563" text-anchor="start">72</text><text x="230.0" y="352.0" font-size="11" fill="#4B5563" text-anchor="middle">78</text><text x="79.0" y="219.0" font-size="11" fill="#4B5563" text-anchor="end">90</text><text x="230.0" y="41.0" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="middle">信息意识</text><text x="402.0" y="220.0" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="start">计算思维</text><text x="230.0" y="401.0" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="middle">数字化学习与创新</text><text x="58.0" y="220.0" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="end">信息社会责任</text><text x="236.0" y="180.5" font-size="10" fill="#6B7280">25</text><text x="236.0" y="143.0" font-size="10" fill="#6B7280">50</text><text x="236.0" y="105.5" font-size="10" fill="#6B7280">75</text><text x="236.0" y="68.0" font-size="10" fill="#6B7280">100</text></svg></div></div>
+
+图表下方的数据核对表（模拟）：
+
+| 维度 | 数值 | 判定依据（报告原文摘录） |
+|---|---|---|
+| 信息意识 | 85 | 能主动检索并甄别资料来源，对话中两次质疑数据可靠性 |
+| 计算思维 | 72 | 能拆解问题，但流程表述含糊，需提示才补全 |
+| 数字化学习与创新 | 78 | 熟练使用在线工具协作，作品有个人排版创意 |
+| 信息社会责任 | 90 | 引用规范，主动提醒同学标注来源 |
+
+报告正文相应变化（模拟片段）：
+
+> **优势**：信息意识与信息社会责任突出，能主动甄别信息来源并规范引用。**薄弱**：计算思维的"问题分解"环节表述不完整，建议用流程图模板练习把大问题拆成小步骤。
+
+**对比要点**：维度名一换，雷达图形状、判定依据、优势/薄弱分析全部跟着换。你不需要碰任何画图代码，系统自动适配。
+
+### 案例 B：数学老师把百分制换成等级制（换指标）
+
+**① 改之前——AI 按百分制"自由发挥"**
+
+```
+3. 插入 chart 块（type=radar）展示综合能力（维度：知识掌握、参与度、思维深度、作业表现、学习态度）
+```
+
+模板没写判定标准，82 分还是 76 分全凭 AI 对数据的理解，同一学生两次生成的分数可能不一样。
+
+**② 改之后——在「报告要求」段之前新增一节**
+
+```
+## 维度与等级体系
+
+雷达图维度及评分标准（先按判定标准定等级，再取括号内分值填入图表）：
+
+| 维度 | 优(90) | 良(75) | 合格(60) | 待改进(40) |
+|---|---|---|---|---|
+| 知识掌握 | 课堂检测全对 | 错1题 | 错2题 | 错3题及以上 |
+| 参与度 | 主动发言≥3次 | 有发言 | 仅应答 | 未参与 |
+| 思维深度 | 能提出新问题 | 能解释思路 | 能复述结论 | 无法复述 |
+| 作业表现 | 全部完成且正确 | 完成有小错 | 部分完成 | 大量未完成 |
+| 学习态度 | 主动预习复习 | 按要求完成 | 需催促 | 多次缺交 |
+
+- 图表旁的核对表同时展示"等级 + 分值"，方便家长看懂判定依据。
+```
+
+**③ 新报告的效果（模拟数据）**
+
+chart 块数值变成按你的标准换算出的分值：
+
+<div class="qc-chart-card" style="background:#FFFFFF;border:1px solid #E5E7EB;border-radius:10px;padding:14px 16px 6px;margin:18px 0"><div class="qc-chart" style="margin:16px 0;break-inside:avoid;page-break-inside:avoid"><div style="font-size:15px;font-weight:700;color:#1F2937;margin-bottom:10px;text-align:center">综合能力</div><svg viewBox="0 0 460 420" width="100%" style="max-width:460px;display:block;margin:0 auto" xmlns="http://www.w3.org/2000/svg"><polygon points="230.0,65.0 372.7,168.6 318.2,336.4 141.8,336.4 87.3,168.6" fill="none" stroke="#94A3B8" stroke-width="2"/><polygon points="230.0,102.5 337.0,180.2 296.1,306.0 163.9,306.0 123.0,180.2" fill="none" stroke="#94A3B8" stroke-width="1.5"/><polygon points="230.0,140.0 301.3,191.8 274.1,275.7 185.9,275.7 158.7,191.8" fill="none" stroke="#94A3B8" stroke-width="1.5"/><polygon points="230.0,177.5 265.7,203.4 252.0,245.3 208.0,245.3 194.3,203.4" fill="none" stroke="#94A3B8" stroke-width="1.5"/><line x1="230.0" y1="215.0" x2="230.0" y2="65.0" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><line x1="230.0" y1="215.0" x2="372.7" y2="168.6" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><line x1="230.0" y1="215.0" x2="318.2" y2="336.4" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><line x1="230.0" y1="215.0" x2="141.8" y2="336.4" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><line x1="230.0" y1="215.0" x2="87.3" y2="168.6" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><polygon points="230.0,80.0 337.0,180.2 282.9,287.8 163.9,306.0 101.6,173.3" fill="#0052D9" fill-opacity="0.3" stroke="#0052D9" stroke-width="2.5"/><circle cx="230.0" cy="80.0" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><circle cx="337.0" cy="180.2" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><circle cx="282.9" cy="287.8" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><circle cx="163.9" cy="306.0" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><circle cx="101.6" cy="173.3" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><text x="230.0" y="68.0" font-size="11" fill="#4B5563" text-anchor="middle">90</text><text x="352.2" y="179.3" font-size="11" fill="#4B5563" text-anchor="start">75</text><text x="292.3" y="304.8" font-size="11" fill="#4B5563" text-anchor="start">60</text><text x="154.5" y="323.0" font-size="11" fill="#4B5563" text-anchor="end">75</text><text x="86.4" y="172.3" font-size="11" fill="#4B5563" text-anchor="end">90</text><text x="230.0" y="41.0" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="middle">知识掌握</text><text x="393.6" y="166.8" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="start">参与度</text><text x="331.1" y="368.2" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="start">思维深度</text><text x="128.9" y="368.2" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="end">作业表现</text><text x="66.4" y="166.8" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="end">学习态度</text><text x="236.0" y="180.5" font-size="10" fill="#6B7280">25</text><text x="236.0" y="143.0" font-size="10" fill="#6B7280">50</text><text x="236.0" y="105.5" font-size="10" fill="#6B7280">75</text><text x="236.0" y="68.0" font-size="10" fill="#6B7280">100</text></svg></div></div>
+
+核对表变成"等级 + 分值 + 依据"三列（模拟）：
+
+| 维度 | 等级 | 分值 | 判定依据 |
+|---|---|---|---|
+| 知识掌握 | 优 | 90 | 课堂检测 5/5 全对 |
+| 参与度 | 良 | 75 | 主动发言 2 次 |
+| 思维深度 | 合格 | 60 | 能复述"半径与直径的关系"，未主动解释思路 |
+| 作业表现 | 良 | 75 | 完成 8/10 题，错 1 题计算、1 题单位 |
+| 学习态度 | 优 | 90 | 课前预习并标注了疑问点 |
+
+**对比要点**：分数不再是 AI 拍脑袋，而是从**你定的判定标准**推出来的——同一份数据，每次生成分数一致。家长看到的也不再是干巴巴的 82 分，而是"优——课堂检测全对"。
+
+### 案例 C：加「家校沟通建议」板块
+
+**① 改之前——报告要求共 9 条**，报告只有学情分析，没有给家长的话。
+
+**② 改之后——末尾加一条**
+
+```
+10. 增加「家校沟通建议」板块：针对待改进维度，写一条可直接发给家长的建议（50字内，具体可执行，不出现分数和排名）
+```
+
+**③ 新报告的效果（模拟片段）**
+
+报告末尾多出一个板块：
+
+> **家校沟通建议**思维深度为"合格"档，建议家长每周陪孩子玩一次"你说我猜"数学游戏：孩子用学过的概念描述、家长来猜，练习把思路讲清楚。
+
+**对比要点**：加一条要求 = 报告多一个板块。写清**板块名、写什么、字数、口吻**，AI 就稳定输出；写得含糊（如"给家长提点建议"），输出质量就会飘。
+
+## 五、改坏了怎么办
+
+1. **报告内容不对** → 回模板管理页继续调，不影响历史报告。
+2. **想推倒重来** → 找到默认模板，复制一份，重新开始。
+3. **图表没显示** → 检查模板里是否误删了图表数据块（形如 `type: "radar"` 的几行）。图表块格式固定，删掉整块再按例子重写即可，**不要手工改块里的格式**。
+
+## 六、上手路径建议
+
+```
+第 1 步：用默认模板跑一份报告，看看哪里不合心意
+第 2 步：复制模板，只改维度名（例子 1）
+第 3 步：加等级映射表（例子 2）
+第 4 步：调整报告板块和口吻（例子 3）
+第 5 步：增删图表、对齐数据来源（例子 4）
+```
+
+每改一步，用同一份作业试跑对比一次——**固定数据、只变模板**，才能看出改动效果。
+
+## 七、教研组共享
+
+模板管理页支持导出/导入：
+
+* 调好一份模板 → 导出为文件 → 发到教研组群
+* 同事导入后即用，无需重复调
+
+建议教研组共建一套学科模板（一人主笔、全组试用、迭代两轮定型），比每人各调一份效率高得多。
+
+## 附录：图表类型速查（type 有哪些）
+
+> 模板里的图表都由「chart 块」的 `type` 字段决定画什么，系统一共支持 6 种类型。
+
+### 先说数据：图表靠什么画出来？
+
+系统发给 AI 的是**文本统计**——模板里的 `{变量}` 会被替换成文字，例如 `{questionStats}` 变成「[基础] 分数的定义… 正确率92%」。AI 从这些文字里读出数值、写成 chart 块的 JSON，系统再照 JSON 确定性渲染成图。
+
+所以一张图**能不能画准，取决于模板变量里有没有显式数值**，分三档：
+
+* ✅ **有客观数值**：各题正确率、分数分布、操作类型统计、个人作业明细——这些变量本身带数字，图能画准。
+* ⚠️ **AI 评估分**：雷达图的「能力维度分值」（如「知识掌握 82 分」）**没有现成变量**，是 AI 从对话/报告文字里主观打的分，数值无出处、有编造风险。
+* ❌ **无数据**：`课堂作业设计`、`学生对话设计` 两类模板只有课题、年级等元信息，没有任何学情数据，画不了数据图。
+
+下面每种类型都标注了它的**数据来源**，并给出示例块（已渲染成真实图形）。
+
+### 示例块怎么用？（先看这段，别急着抄）
+
+下面每种图给的「示例块」，**不是让你抄进模板**，而是给你**核对格式**用——展示「AI 最终会输出什么样的 JSON」。
+
+你真正要写进模板的，是每种图下面「模板里怎么写（报告要求里写）」那一行文字，照它写进模板的「报告要求」段即可。JSON 由 AI 按「图表协议」段的规则自动生成。
+
+**唯一需要手动贴 JSON 的情况**：某张图 AI 反复画错格式。这时才把对应的「示例块」整段抄进模板「报告要求」该条目的**下方**，给 AI 一个精确样板。
+
+### 总览
+
+| type | 图形 | 一句话说明 | 数据来源 |
+|---|---|---|---|
+| `radar` | 雷达图（N 边形） | 多维能力对比 | ⚠️ AI 评估分，无现成变量 |
+| `bar` | 柱状图 | 多个项目的数值对比 | ✅ `{questionStats}` / `{scoreDistribution}` |
+| `line` | 折线图 | 同一维度随时间/次数的变化 | ✅ `{personalQuizStats}`（多次作业） |
+| `pie` | 饼图 / 环形图 | 构成的占比 | ✅ `{scoreDistribution}` / `{actionTypeStats}` |
+| `progress` | 进度条 | 单个维度的达成进度 | ✅ `{questionStats}`（正确率 0-100） |
+| `scatter` | 散点图 | 两个变量之间的关系 | ✅ `{submissionDetails}`（仅互动探究） |
+
+> **雷达图 vs 其他图，改法不一样**：雷达图的「维度」是你**自由定义**的——改维度时「报告要求」和示例块**两处同步**（见案例 A），数值是 AI 主观打的分。其余 5 种图的 `name` 不是"维度"，而是**客观数据项**，只能从对应变量里挑（`bar`/`pie` 取 `{scoreDistribution}`、`bar`/`progress` 取 `{questionStats}`、`line` 取 `{personalQuizStats}`、`scatter` 取 `{submissionDetails}`），不能凭空发明，数值 AI 直接照抄。**改法更简单：只改「报告要求」那一条，示例块不用动**（示例块是 `radar` 样板，与你的新图无关）。
+
+### 1. `radar` —— 雷达图
+
+**图形**：一个顶点代表一个维度，值越大越靠外；中心是 0，外圈默认 100 分。写几项就画几边形（3～12 项）。
+
+**数据来源**：⚠️ **没有现成变量**。模板变量里只有各题正确率、分数分布等客观统计，以及对话/报告文本，**没有「能力维度分值」**。图上的每个分值（如「知识掌握 82」）是 AI 根据对话和作业表现**主观评估**打的分，在数据段里找不到出处。
+
+**适合场景**：同一学生在多个维度上的能力对比。若坚持用，维度应选**能从数据段推断**的（如作业正确率、参与度），并在模板里写清打分依据；否则宁可用 `bar` / `progress` 展示客观数据。
+
+**模板里怎么写**（报告要求里写）：
+
+```
+3. 插入 chart 块（type=radar）展示综合能力（维度：知识掌握、参与度、思维深度、作业表现、学习态度，按此顺序）
+```
+
+示例块（AI 输出长这样）：
+
+<div class="qc-chart-card" style="background:#FFFFFF;border:1px solid #E5E7EB;border-radius:10px;padding:14px 16px 6px;margin:18px 0"><div class="qc-chart" style="margin:16px 0;break-inside:avoid;page-break-inside:avoid"><div style="font-size:15px;font-weight:700;color:#1F2937;margin-bottom:10px;text-align:center">综合能力（示例）</div><svg viewBox="0 0 460 420" width="100%" style="max-width:460px;display:block;margin:0 auto" xmlns="http://www.w3.org/2000/svg"><polygon points="230.0,65.0 372.7,168.6 318.2,336.4 141.8,336.4 87.3,168.6" fill="none" stroke="#94A3B8" stroke-width="2"/><polygon points="230.0,102.5 337.0,180.2 296.1,306.0 163.9,306.0 123.0,180.2" fill="none" stroke="#94A3B8" stroke-width="1.5"/><polygon points="230.0,140.0 301.3,191.8 274.1,275.7 185.9,275.7 158.7,191.8" fill="none" stroke="#94A3B8" stroke-width="1.5"/><polygon points="230.0,177.5 265.7,203.4 252.0,245.3 208.0,245.3 194.3,203.4" fill="none" stroke="#94A3B8" stroke-width="1.5"/><line x1="230.0" y1="215.0" x2="230.0" y2="65.0" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><line x1="230.0" y1="215.0" x2="372.7" y2="168.6" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><line x1="230.0" y1="215.0" x2="318.2" y2="336.4" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><line x1="230.0" y1="215.0" x2="141.8" y2="336.4" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><line x1="230.0" y1="215.0" x2="87.3" y2="168.6" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 3"/><polygon points="230.0,101.0 355.5,174.2 290.0,297.5 150.6,324.2 108.7,175.6" fill="#0052D9" fill-opacity="0.3" stroke="#0052D9" stroke-width="2.5"/><circle cx="230.0" cy="101.0" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><circle cx="355.5" cy="174.2" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><circle cx="290.0" cy="297.5" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><circle cx="150.6" cy="324.2" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><circle cx="108.7" cy="175.6" r="4" fill="#0052D9" stroke="white" stroke-width="1.5"/><text x="230.0" y="89.0" font-size="11" fill="#4B5563" text-anchor="middle">76</text><text x="370.8" y="173.3" font-size="11" fill="#4B5563" text-anchor="start">88</text><text x="299.4" y="314.5" font-size="11" fill="#4B5563" text-anchor="start">68</text><text x="141.2" y="341.2" font-size="11" fill="#4B5563" text-anchor="end">90</text><text x="93.5" y="174.7" font-size="11" fill="#4B5563" text-anchor="end">85</text><text x="230.0" y="41.0" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="middle">课堂参与</text><text x="393.6" y="166.8" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="start">知识掌握</text><text x="331.1" y="368.2" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="start">思维深度</text><text x="128.9" y="368.2" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="end">作业表现</text><text x="66.4" y="166.8" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="end">学习态度</text><text x="236.0" y="180.5" font-size="10" fill="#6B7280">25</text><text x="236.0" y="143.0" font-size="10" fill="#6B7280">50</text><text x="236.0" y="105.5" font-size="10" fill="#6B7280">75</text><text x="236.0" y="68.0" font-size="10" fill="#6B7280">100</text></svg></div></div>
+
+可选样式：`"style":{"max":100}` 改满分刻度；`"style":{"theme":"green"}` 换配色。
+
+### 2. `bar` —— 柱状图
+
+**图形**：一根柱子一个项目，柱子越高数值越大。10 项以内竖排，超过 10 项自动横排（防止标签挤在一起）。
+
+**数据来源**：✅ 有客观数值。`{questionStats}`（各题正确率）、`{scoreDistribution}`（分数段人数）都自带显式数字，AI 直接照抄即可，图能画准。
+
+**适合场景**：多个项目放一起比数值，如各题的正确率、各分数段的人数。
+
+**模板里怎么写**（报告要求里写）：
+
+```
+3. 插入 chart 块（type=bar）展示各知识点掌握度（单位：分）
+```
+
+示例块（AI 输出长这样）：
+
+<div class="qc-chart-card" style="background:#FFFFFF;border:1px solid #E5E7EB;border-radius:10px;padding:14px 16px 6px;margin:18px 0"><div class="qc-chart" style="margin:16px 0;break-inside:avoid;page-break-inside:avoid"><div style="font-size:15px;font-weight:700;color:#1F2937;margin-bottom:10px;text-align:center">各知识点掌握度（示例）</div><svg viewBox="0 0 800 400" width="100%" style="max-width:800px;display:block;margin:0 auto" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="qcl487d2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5B8CFF"/><stop offset="1" stop-color="#0052D9"/></linearGradient><linearGradient id="qcl487d2w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF8F9A"/><stop offset="1" stop-color="#E34D59"/></linearGradient></defs><line x1="60.0" y1="350.0" x2="780.0" y2="350.0" stroke="#E5E7EB" stroke-dasharray="4 4"/><text x="52.0" y="354.0" font-size="11" fill="#6B7280" text-anchor="end">0</text><line x1="60.0" y1="272.5" x2="780.0" y2="272.5" stroke="#E5E7EB" stroke-dasharray="4 4"/><text x="52.0" y="276.5" font-size="11" fill="#6B7280" text-anchor="end">27.5</text><line x1="60.0" y1="195.0" x2="780.0" y2="195.0" stroke="#E5E7EB" stroke-dasharray="4 4"/><text x="52.0" y="199.0" font-size="11" fill="#6B7280" text-anchor="end">55</text><line x1="60.0" y1="117.5" x2="780.0" y2="117.5" stroke="#E5E7EB" stroke-dasharray="4 4"/><text x="52.0" y="121.5" font-size="11" fill="#6B7280" text-anchor="end">82.5</text><line x1="60.0" y1="40.0" x2="780.0" y2="40.0" stroke="#E5E7EB" stroke-dasharray="4 4"/><text x="52.0" y="44.0" font-size="11" fill="#6B7280" text-anchor="end">110</text><line x1="60.0" y1="350.0" x2="780.0" y2="350.0" stroke="#94A3B8" stroke-width="2"/><rect x="189.0" y="90.7" width="84.0" height="259.3" rx="6" fill="url(#qcl487d2)"/><rect x="315.0" y="124.5" width="84.0" height="225.5" rx="6" fill="url(#qcl487d2)"/><rect x="441.0" y="166.8" width="84.0" height="183.2" rx="6" fill="url(#qcl487d2)"/><rect x="567.0" y="141.5" width="84.0" height="208.5" rx="6" fill="url(#qcl487d2)"/><text x="231.0" y="84.7" font-size="13" font-weight="bold" fill="#1F2937" text-anchor="middle">92分</text><text x="357.0" y="118.5" font-size="13" font-weight="bold" fill="#1F2937" text-anchor="middle">80分</text><text x="483.0" y="160.8" font-size="13" font-weight="bold" fill="#1F2937" text-anchor="middle">65分</text><text x="609.0" y="135.5" font-size="13" font-weight="bold" fill="#1F2937" text-anchor="middle">74分</text><text x="231.0" y="368.0" font-size="12" fill="#4B5563" text-anchor="middle">识字</text><text x="357.0" y="368.0" font-size="12" fill="#4B5563" text-anchor="middle">阅读</text><text x="483.0" y="368.0" font-size="12" fill="#4B5563" text-anchor="middle">写作</text><text x="609.0" y="368.0" font-size="12" fill="#4B5563" text-anchor="middle">口语</text></svg></div></div>
+
+可选样式：`"style":{"warnBelow":60}` 让低于 60 分的柱子变红提醒。
+
+### 3. `line` —— 折线图
+
+**图形**：折线连起各数据点，最大值用主色加粗、最小值用红色标注。只有 1 个点时只画点不画线。
+
+**数据来源**：✅ 有客观数值，但**只在学生个人场景有**。`{personalQuizStats}` 记录该学生各次作业的得分，多次作业就能连成趋势；只有一次作业时只画一个点。班级场景的 `{classQuizStats}` 也能画「各次作业平均分」趋势。
+
+**适合场景**：同一维度随时间或次数变化，如某学生的多次测试成绩趋势。
+
+**模板里怎么写**（报告要求里写）：
+
+```
+3. 插入 chart 块（type=line）展示本单元四次测试成绩趋势
+```
+
+示例块（AI 输出长这样）：
+
+<div class="qc-chart-card" style="background:#FFFFFF;border:1px solid #E5E7EB;border-radius:10px;padding:14px 16px 6px;margin:18px 0"><div class="qc-chart" style="margin:16px 0;break-inside:avoid;page-break-inside:avoid"><div style="font-size:15px;font-weight:700;color:#1F2937;margin-bottom:10px;text-align:center">单元测试趋势（示例）</div><svg viewBox="0 0 800 400" width="100%" style="max-width:800px;display:block;margin:0 auto" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="qcswbdmp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0052D9" stop-opacity="0.22"/><stop offset="1" stop-color="#0052D9" stop-opacity="0"/></linearGradient></defs><line x1="60.0" y1="350.0" x2="780.0" y2="350.0" stroke="#E5E7EB" stroke-dasharray="4 4"/><text x="52.0" y="354.0" font-size="11" fill="#6B7280" text-anchor="end">0</text><line x1="60.0" y1="272.5" x2="780.0" y2="272.5" stroke="#E5E7EB" stroke-dasharray="4 4"/><text x="52.0" y="276.5" font-size="11" fill="#6B7280" text-anchor="end">25</text><line x1="60.0" y1="195.0" x2="780.0" y2="195.0" stroke="#E5E7EB" stroke-dasharray="4 4"/><text x="52.0" y="199.0" font-size="11" fill="#6B7280" text-anchor="end">50</text><line x1="60.0" y1="117.5" x2="780.0" y2="117.5" stroke="#E5E7EB" stroke-dasharray="4 4"/><text x="52.0" y="121.5" font-size="11" fill="#6B7280" text-anchor="end">75</text><line x1="60.0" y1="40.0" x2="780.0" y2="40.0" stroke="#E5E7EB" stroke-dasharray="4 4"/><text x="52.0" y="44.0" font-size="11" fill="#6B7280" text-anchor="end">100</text><path d="M 60.0 350.0 L 60.0 157.8 L 300.0 133.0 L 540.0 108.2 L 780.0 86.5 L 780.0 350.0 Z" fill="url(#qcswbdmp)"/><polyline points="60.0,157.8 300.0,133.0 540.0,108.2 780.0,86.5" fill="none" stroke="#0052D9" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><line x1="60.0" y1="350.0" x2="780.0" y2="350.0" stroke="#94A3B8" stroke-width="2"/><circle cx="60.0" cy="157.8" r="4.5" fill="#0052D9" stroke="white" stroke-width="1.5"/><circle cx="300.0" cy="133.0" r="4.5" fill="#0052D9" stroke="white" stroke-width="1.5"/><circle cx="540.0" cy="108.2" r="4.5" fill="#0052D9" stroke="white" stroke-width="1.5"/><circle cx="780.0" cy="86.5" r="4.5" fill="#0052D9" stroke="white" stroke-width="1.5"/><text x="60.0" y="147.8" font-size="11" fill="#E34D59" font-weight="bold" text-anchor="middle">62</text><text x="300.0" y="123.0" font-size="11" fill="#4B5563" text-anchor="middle">70</text><text x="540.0" y="98.2" font-size="11" fill="#4B5563" text-anchor="middle">78</text><text x="780.0" y="76.5" font-size="11" fill="#0052D9" font-weight="bold" text-anchor="middle">85</text><text x="60.0" y="368.0" font-size="12" fill="#4B5563" text-anchor="middle">第1次</text><text x="300.0" y="368.0" font-size="12" fill="#4B5563" text-anchor="middle">第2次</text><text x="540.0" y="368.0" font-size="12" fill="#4B5563" text-anchor="middle">第3次</text><text x="780.0" y="368.0" font-size="12" fill="#4B5563" text-anchor="middle">第4次</text></svg></div></div>
+
+可选样式：`"style":{"unit":"分"}` 给数值加单位。
+
+### 4. `pie` —— 饼图 / 环形图
+
+**图形**：按数值比例切分。只有两块、或某块占比超过 60% 时自动变成环形图，圆心显示核心数值；加了 `warn` 标记的块用红色。
+
+**数据来源**：✅ 有客观数值。`{scoreDistribution}`（各分数段人数）、`{actionTypeStats}`（点击/拖拽等操作次数，仅互动探究）都是显式占比数据。
+
+**适合场景**：展示构成占比，如分数段人数构成、操作类型占比。
+
+**模板里怎么写**（报告要求里写）：
+
+```
+3. 插入 chart 块（type=pie）展示作业完成情况构成
+```
+
+示例块（AI 输出长这样）：
+
+<div class="qc-chart-card" style="background:#FFFFFF;border:1px solid #E5E7EB;border-radius:10px;padding:14px 16px 6px;margin:18px 0"><div class="qc-chart" style="margin:16px 0;break-inside:avoid;page-break-inside:avoid"><div style="font-size:15px;font-weight:700;color:#1F2937;margin-bottom:10px;text-align:center">作业完成情况（示例）</div><svg viewBox="0 0 400 380" width="100%" style="max-width:400px;display:block;margin:0 auto" xmlns="http://www.w3.org/2000/svg"><path d="M 200.0 190.0 L 200.0 40.0 A 150.0 150.0 0 1 1 186.6 339.4 Z" fill="#0052D9" stroke="white" stroke-width="2"/><path d="M 200.0 190.0 L 186.6 339.4 A 150.0 150.0 0 0 1 82.7 96.5 Z" fill="#00A870" stroke="white" stroke-width="2"/><path d="M 200.0 190.0 L 82.7 96.5 A 150.0 150.0 0 0 1 200.0 40.0 Z" fill="#E34D59" stroke="white" stroke-width="2"/><text x="307.9" y="198.8" font-size="12" fill="white" text-anchor="middle" font-weight="bold">51.4%</text><text x="100.7" y="236.4" font-size="12" fill="white" text-anchor="middle" font-weight="bold">34.3%</text><text x="153.1" y="96.7" font-size="12" fill="white" text-anchor="middle" font-weight="bold">14.3%</text></svg><div style="display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:center;margin-top:8px;font-size:12px;color:#4B5563"><span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#0052D9;margin-right:4px;vertical-align:middle"></span>全对</span><span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#00A870;margin-right:4px;vertical-align:middle"></span>有小错</span><span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#E34D59;margin-right:4px;vertical-align:middle"></span>未完成</span></div></div></div>
+
+说明：给需要提醒的块加 `"warn":true`，它会显示为红色。
+
+### 5. `progress` —— 进度条
+
+**图形**：一条横向进度条，左边名称、右边数值，进度按 0～100 填满。它不是图片，是网页原生样式，最省空间。
+
+**数据来源**：✅ 有客观数值（首选）。`{questionStats}` 的各题正确率本身就是 0-100，最适合进度条。若从对话报告里提炼「知识点掌握度」，则属于 ⚠️ AI 评估分。
+
+**适合场景**：展示单个维度的达成进度，如各题正确率、班级整体掌握度。
+
+**模板里怎么写**（报告要求里写）：
+
+```
+3. 插入 chart 块（type=progress）展示各知识点达成进度（单位：%）
+```
+
+示例块（AI 输出长这样）：
+
+<div class="qc-chart-card" style="background:#FFFFFF;border:1px solid #E5E7EB;border-radius:10px;padding:14px 16px 6px;margin:18px 0"><div class="qc-chart" style="margin:16px 0;break-inside:avoid;page-break-inside:avoid"><div style="font-size:15px;font-weight:700;color:#1F2937;margin-bottom:10px;text-align:center">各知识点达成进度（示例）</div><div style="max-width:800px;margin:0 auto"><div style="display:flex;align-items:center;gap:10px;margin:8px 0"><div style="width:130px;font-size:13px;color:#1F2937;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="计算">计算</div><div style="flex:1;height:14px;background:#E5E7EB;border-radius:7px;overflow:hidden"><div style="width:90%;height:100%;background:#0052D9;border-radius:7px"></div></div><div style="width:56px;font-size:12px;color:#4B5563;font-weight:600">90%</div></div><div style="display:flex;align-items:center;gap:10px;margin:8px 0"><div style="width:130px;font-size:13px;color:#1F2937;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="应用">应用</div><div style="flex:1;height:14px;background:#E5E7EB;border-radius:7px;overflow:hidden"><div style="width:72%;height:100%;background:#0052D9;border-radius:7px"></div></div><div style="width:56px;font-size:12px;color:#4B5563;font-weight:600">72%</div></div><div style="display:flex;align-items:center;gap:10px;margin:8px 0"><div style="width:130px;font-size:13px;color:#1F2937;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="表达">表达</div><div style="flex:1;height:14px;background:#E5E7EB;border-radius:7px;overflow:hidden"><div style="width:55%;height:100%;background:#0052D9;border-radius:7px"></div></div><div style="width:56px;font-size:12px;color:#4B5563;font-weight:600">55%</div></div></div></div></div>
+
+可选样式：`"style":{"warnBelow":60}` 让低于 60 的进度条变红。
+
+### 6. `scatter` —— 散点图
+
+**图形**：二维坐标上的散点，横轴一个变量、纵轴一个变量，每个点可带名字（鼠标悬停显示）。
+
+**数据来源**：✅ 有客观数值，但**只在互动探究场景有**。`{submissionDetails}` 含每个学生的得分和操作次数（如「张三：85分，操作12次」），可组成 `x=操作次数、y=得分` 的散点。其他场景没有二维配对数据，慎用。
+
+**适合场景**：看两个变量之间的关系，如操作次数与得分、投入与成绩。
+
+**模板里怎么写**（报告要求里写）：
+
+```
+3. 插入 chart 块（type=scatter）展示投入时间与测验成绩的关系
+```
+
+示例块（AI 输出长这样）：
+
+<div class="qc-chart-card" style="background:#FFFFFF;border:1px solid #E5E7EB;border-radius:10px;padding:14px 16px 6px;margin:18px 0"><div class="qc-chart" style="margin:16px 0;break-inside:avoid;page-break-inside:avoid"><div style="font-size:15px;font-weight:700;color:#1F2937;margin-bottom:10px;text-align:center">投入与效果（示例）</div><svg viewBox="0 0 800 420" width="100%" style="max-width:800px;display:block;margin:0 auto" xmlns="http://www.w3.org/2000/svg"><line x1="60.0" y1="370.0" x2="780.0" y2="370.0" stroke="#E5E7EB" stroke-dasharray="4 4"/><text x="52.0" y="374.0" font-size="11" fill="#6B7280" text-anchor="end">41.4</text><line x1="60.0" y1="285.0" x2="780.0" y2="285.0" stroke="#E5E7EB" stroke-dasharray="4 4"/><text x="52.0" y="289.0" font-size="11" fill="#6B7280" text-anchor="end">54.4</text><line x1="60.0" y1="200.0" x2="780.0" y2="200.0" stroke="#E5E7EB" stroke-dasharray="4 4"/><text x="52.0" y="204.0" font-size="11" fill="#6B7280" text-anchor="end">67.5</text><line x1="60.0" y1="115.0" x2="780.0" y2="115.0" stroke="#E5E7EB" stroke-dasharray="4 4"/><text x="52.0" y="119.0" font-size="11" fill="#6B7280" text-anchor="end">80.5</text><line x1="60.0" y1="30.0" x2="780.0" y2="30.0" stroke="#E5E7EB" stroke-dasharray="4 4"/><text x="52.0" y="34.0" font-size="11" fill="#6B7280" text-anchor="end">93.6</text><text x="60.0" y="388.0" font-size="11" fill="#6B7280" text-anchor="middle">36.4</text><text x="240.0" y="388.0" font-size="11" fill="#6B7280" text-anchor="middle">49.4</text><text x="420.0" y="388.0" font-size="11" fill="#6B7280" text-anchor="middle">62.5</text><text x="600.0" y="388.0" font-size="11" fill="#6B7280" text-anchor="middle">75.5</text><text x="780.0" y="388.0" font-size="11" fill="#6B7280" text-anchor="middle">88.6</text><line x1="60.0" y1="370.0" x2="780.0" y2="370.0" stroke="#94A3B8" stroke-width="2"/><line x1="60.0" y1="30.0" x2="60.0" y2="370.0" stroke="#94A3B8" stroke-width="2"/><circle cx="385.5" cy="183.7" r="4" fill="#0052D9" fill-opacity="0.65" stroke="white" stroke-width="1"><title>学生A</title></circle><circle cx="730.3" cy="53.4" r="4" fill="#0052D9" fill-opacity="0.65" stroke="white" stroke-width="1"><title>学生B</title></circle><circle cx="109.7" cy="346.6" r="4" fill="#0052D9" fill-opacity="0.65" stroke="white" stroke-width="1"><title>学生C</title></circle><circle cx="523.4" cy="248.9" r="4" fill="#0052D9" fill-opacity="0.65" stroke="white" stroke-width="1"><title>学生D</title></circle><text x="420.0" y="415.0" font-size="12" fill="#6B7280" text-anchor="middle">投入时间</text><text x="16" y="200.0" font-size="12" fill="#6B7280" text-anchor="middle" transform="rotate(-90 16 200.0)">测验成绩</text></svg></div></div>
+
+说明：横轴、纵轴的含义用 `"style":{"xLabel":..., "yLabel":...}` 标注。
+
+> **一句话总结：系统管画图，你管标准。改维度、定等级、调板块——三件事，三个例子，照抄起步。**

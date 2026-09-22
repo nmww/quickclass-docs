@@ -43,6 +43,7 @@ nav:
       - 课堂、班级与学习活动: guide/teacher.md
       - 导入导出与知识库: guide/import-export.md
       - 学情分析与教学研究: guide/analysis.md
+      - 学情分析模板定制: guide/template-guide.md
       - 系统配置与手册导出: guide/settings.md
   - 学生端: guide/student.md
   - WorkBuddy 技能支持: workbuddy.md
