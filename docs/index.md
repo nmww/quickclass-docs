@@ -4,6 +4,13 @@
 
 > 面向对象：一线教师、教研人员、平台部署者。
 
+<div class="grid cards" markdown>
+
+- :material-video: **[视频教程 · QuickClass 入门到精通（8 集）](videos.md)**  
+  页面内直接播放，**无需跳转 B 站**。从创建课堂到生成教研论文，手把手跟练核心全流程。
+
+</div>
+
 ---
 
 ## 核心能力

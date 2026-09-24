@@ -38,6 +38,7 @@ theme:
 
 nav:
   - 首页: index.md
+  - 视频教程: videos.md
   - 快速上手: guide/getting-started.md
   - 教师端功能:
       - 课堂、班级与学习活动: guide/teacher.md
