@@ -7,6 +7,10 @@
    右列被挤成长条、播放器下方大片空白（cc 09-24 反馈不协调），勿改回双栏。 */
 #qc-player { position:relative; width:100%; aspect-ratio:16/9; background:#000; border-radius:12px; overflow:hidden; box-shadow:0 4px 18px rgba(0,0,0,.18); margin-top:.5rem; }
 #qc-player iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+/* ⛔ DO NOT REVERT: 同域全屏按钮。iOS 不支持 iframe/div 全屏（平台限制），
+   故不支持时降级为打开 B站原片（其移动端播放器有原生全屏）。见 qc-videos.js。 */
+#qc-fs { position:absolute; top:.5rem; right:.5rem; z-index:5; display:inline-flex; align-items:center; gap:.3rem; padding:.35rem .6rem; font-size:.78rem; color:#fff; background:rgba(0,0,0,.5); border:0; border-radius:8px; cursor:pointer; transition:background .15s; }
+#qc-fs:hover { background:rgba(0,0,0,.78); }
 #qc-now { display:flex; align-items:center; gap:.55rem; margin:1rem 0 .9rem; font-size:.95rem; font-weight:600; color:var(--md-default-fg-color); }
 #qc-now .dot { flex:0 0 auto; width:.55rem; height:.55rem; border-radius:50%; background:#e53935; box-shadow:0 0 0 3px rgba(229,57,53,.18); }
 #qc-list { display:grid; grid-template-columns:repeat(auto-fill,minmax(225px,1fr)); gap:.6rem; margin:.25rem 0 1.25rem; }
@@ -24,6 +28,7 @@
 </style>
 
 <div id="qc-player">
+  <button id="qc-fs" type="button" title="全屏播放（iOS 将打开 B站原片）">⛶ 全屏</button>
   <iframe id="qc-iframe" src="https://player.bilibili.com/player.html?bvid=BV1GXhb6EECw&amp;page=1&amp;high_quality=1&amp;danmaku=0" scrolling="no" frameborder="no" framespacing="0" allowfullscreen="true" allow="fullscreen; encrypted-media"></iframe>
 </div>
 
@@ -73,7 +78,8 @@
 </div>
 
 !!! tip "观看说明"
-    - 视频托管在 B 站，页面已内嵌官方播放器，**直接点集数即可播放**，支持**网页全屏 / 全屏**（播放器右下角按钮）。
+    - 视频托管在 B 站，页面已内嵌官方播放器，**直接点集数即可播放**。
+    - **全屏**：播放器右上「⛶ 全屏」按钮（桌面/安卓有效）；iOS 因系统限制不支持网页内全屏，点它会自动打开该集 **B站原片**（移动端播放器有原生全屏）。
     - 弹幕默认关闭（`danmaku=0`），观感更干净；如需弹幕可在播放器内自行开启。
     - 建议按顺序 EP01 → EP08 学习；每集右上「↗ B站」可跳转到原视频（新标签页）。
 

@@ -32,4 +32,23 @@
     var btn = e.target.closest('.qc-ep');
     if (btn) { e.preventDefault(); loadEp(btn); }
   });
+  // 同域全屏按钮：桌面/安卓用容器全屏；iOS 不支持 div/iframe 全屏（平台限制），
+  // 降级为打开当前集 B站原片（其移动端播放器有原生全屏）。
+  var fsBtn = document.getElementById('qc-fs');
+  if (fsBtn) {
+    fsBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var player = document.getElementById('qc-player');
+      if (player && document.fullscreenEnabled && player.requestFullscreen) {
+        if (document.fullscreenElement) { document.exitFullscreen(); }
+        else { player.requestFullscreen().catch(function () {}); }
+        return;
+      }
+      // 不支持全屏（多数为 iOS）：打开当前集 B站原片
+      var active = document.querySelector('.qc-ep.active');
+      var url = active ? active.querySelector('.ep-link').getAttribute('href') : 'https://www.bilibili.com';
+      window.open(url, '_blank');
+    });
+  }
 })();
