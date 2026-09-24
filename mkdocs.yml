@@ -79,3 +79,6 @@ plugins:
       lang:
         - zh
         - en
+
+extra_javascript:
+  - assets/js/qc-videos.js
