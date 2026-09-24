@@ -7,9 +7,14 @@
     if (!bvid) return;
     var iframe = document.getElementById('qc-iframe');
     if (iframe) {
+      // 与 videos.md 静态 iframe 参数保持一致（high_quality 高清、danmaku=0 关弹幕）
       iframe.src = 'https://player.bilibili.com/player.html?bvid=' + bvid +
         '&page=1&high_quality=1&danmaku=0';
     }
+    // 同步「正在播放」提示条（HTML 由 videos.md 的 data-now 提供）
+    var now = document.getElementById('qc-now-text');
+    var label = btn.getAttribute('data-now');
+    if (now && label) now.textContent = '正在播放：' + label;
     var items = document.querySelectorAll('.qc-ep');
     for (var i = 0; i < items.length; i++) items[i].classList.remove('active');
     btn.classList.add('active');
