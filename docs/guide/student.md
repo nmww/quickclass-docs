@@ -8,7 +8,9 @@
 
 ### 加入班级
 
-1. 浏览器访问 `http://<教师电脑IP>:3000/student`
+1. 浏览器访问学生端地址：
+   - 公开体验环境：[https://modeai-quickclass.ms.show/student](https://modeai-quickclass.ms.show/student)
+   - 自部署实例：`http://<你的服务器IP>:3000/student`
 2. 输入教师提供的**邀请码**
 3. 输入姓名
 4. 点击「加入」——系统自动创建账号并加入对应班级

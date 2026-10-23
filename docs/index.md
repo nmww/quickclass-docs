@@ -13,6 +13,22 @@
 
 ---
 
+## 项目地址与资源
+
+<div class="grid cards" markdown>
+
+- :material-earth: **[公开体验环境](https://modeai-quickclass.ms.show/)**  
+  浏览器直接打开即用，**教师与学生全部功能可体验**，内置演示数据。无需部署、无需配置。
+- :material-github: **[项目源码（Gitee）](https://gitee.com/maoyouhui/quickclass-release)**  
+  开源代码、使用手册、更新动态都在这里。想自部署或看最新进展，从这里获取。
+
+</div>
+
+!!! tip "最快上手路径"
+    直接打开 [公开体验环境](https://modeai-quickclass.ms.show/) → 用下方演示账号登录 → 跟着 [视频教程](videos.md) 或 [快速上手](guide/getting-started.md) 跑一遍，10 分钟就能感受到完整流程。需要正式教学、长期保存数据，再看 [部署指南](guide/deploy.md) 自部署。
+
+---
+
 ## 核心能力
 
 | 能力 | 说明 |
@@ -26,6 +42,7 @@
 | 📚 **知识库** | 上传教学资料，AI 对话与学情分析自动引用 |
 | 🗂️ **优秀课例库** | 一线教师共享的完整课堂设计，一键导入到自己的课堂 |
 | 📄 **手册导出** | 一键导出教学手册（教案）与学习手册（学案）Word |
+| 🎙️ **语音与多模态** | 学生可语音提问、拍照/传图，AI 结合内容作答；题目与反馈可 AI 朗读 |
 
 ---
 

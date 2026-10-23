@@ -2,6 +2,15 @@
 
 ---
 
+### QuickClass 的地址在哪？源码在哪？
+
+- **公开体验环境**（浏览器直接打开即用，无需部署）：[https://modeai-quickclass.ms.show/](https://modeai-quickclass.ms.show/)（学生端加 `/student`）
+- **项目源码 / 使用手册 / 更新动态**：[https://gitee.com/maoyouhui/quickclass-release](https://gitee.com/maoyouhui/quickclass-release)
+
+体验环境已内置演示数据，用演示账号即可直接试全功能；需要正式教学、长期保存数据，请参考 [部署指南](guide/deploy.md) 自部署。
+
+---
+
 ### 学生看不到课堂？
 
 检查以下几点：
