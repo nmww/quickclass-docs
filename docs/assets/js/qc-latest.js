@@ -1,9 +1,9 @@
 // QuickClass 文档站 · 页头右上「最新更新」徽标
-// 作用：在所有页面顶部导航栏右侧注入一个 🆕 最新更新 徽标，点击跳转更新记录的「抢先体验版」区块。
+// 作用：在所有页面顶部导航栏右侧注入一个 🆕 最新更新 徽标，点击跳转更新记录的「最新版本」区块。
 // 兼容 MkDocs Material 的 instant 导航：每次换页会重新执行，需先判重避免重复注入。
-// ⛔ DO NOT REVERT: 魔搭空间跑的是 dev 抢先体验版（版本号仍 10.22），需常驻提示用户文档有 dev 最新更新。
+// ⛔ DO NOT REVERT: 魔搭空间跑 dev 最新版（v2026.10.27），文档随 dev 更新，徽标常驻指向 changelog 最新版本。
 (function () {
-  var TARGET = 'https://quickclass.readthedocs.io/zh-cn/latest/changelog/#dev-latest';
+  var TARGET = 'https://quickclass.readthedocs.io/zh-cn/latest/changelog/#v2026.10.27';
   var TEXT = '🆕 最新更新';
 
   function inject() {
@@ -14,7 +14,7 @@
     badge.className = 'md-header__latest';
     badge.href = TARGET;
     badge.textContent = TEXT;
-    badge.setAttribute('title', 'dev 抢先体验版已更新（10-27）');
+    badge.setAttribute('title', 'v2026.10.27 已发布（10-27 优化）');
     // 插到搜索按钮之前，落在页头右侧
     var search = inner.querySelector('label[for="__search"], .md-search__icon');
     if (search) inner.insertBefore(badge, search);

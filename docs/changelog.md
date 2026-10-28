@@ -4,10 +4,9 @@
 
 ---
 
-## 🔬 抢先体验版（dev 最新 · 魔搭空间实时运行） {#dev-latest}
+## v2026.10.27 {#v2026.10.27}
 
-!!! warning "这是 dev 分支抢先体验内容"
-    以下内容已在魔搭体验环境 [modeai-quickclass.ms.show](https://modeai-quickclass.ms.show) 上线，属于 **dev 分支抢先体验**，**尚未并入正式发布版本（main / release）**，版本号仍记为 v2026.10.22。正式发布后会并入下方「更新记录」对应版本。
+> 本版本已在魔搭体验环境 [modeai-quickclass.ms.show](https://modeai-quickclass.ms.show) 上线，对应 `dev` 分支最新版，版本号 `v2026.10.27`。
 
 ### 🎉 新增功能
 
