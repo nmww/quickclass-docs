@@ -1,0 +1,30 @@
+/* QuickClass 文档站 · 自定义样式 */
+
+/* 页头右上「最新更新」徽标（qc-latest.js 注入） */
+.md-header__latest {
+  display: inline-flex;
+  align-items: center;
+  margin-right: .6rem;
+  padding: .15rem .55rem;
+  border-radius: 1rem;
+  font-size: .7rem;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #4a2b8c;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+}
+
+.md-header__latest:hover {
+  background: #f0ebff;
+  color: #3a1f73;
+}
+
+/* 手机端页头空间窄，隐藏徽标避免拥挤（用户可进「更新记录」查看） */
+@media screen and (max-width: 44em) {
+  .md-header__latest {
+    display: none;
+  }
+}

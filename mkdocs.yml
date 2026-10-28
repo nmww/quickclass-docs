@@ -80,5 +80,9 @@ plugins:
         - zh
         - en
 
+extra_css:
+  - stylesheets/extra.css
+
 extra_javascript:
   - assets/js/qc-videos.js
+  - assets/js/qc-latest.js
